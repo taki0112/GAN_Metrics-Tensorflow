@@ -2,7 +2,7 @@
 Simple Tensorflow implementation of metrics for GAN evaluation (Inception score, Frechet-Inception score, Kernel-Inception score)
 
 <div align="center">
-  <img src="./assets/description.png" height = '300px'>
+  <img src="./assets/description.png">
 </div>
 
 
