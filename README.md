@@ -9,8 +9,8 @@ Simple Tensorflow implementation of metrics for GAN evaluation (Inception score,
 *Name* | *Description* | *Performance score* 
 :---: | :---: | :---: |
 **Inception score** | KL-Divergence between conditional and marginal label distributions over generated data. | Higher is better.
-**Frechet-Inception score** | Wasserstein-2 distance between multi-variate Gaussians fitted to data embedded into a feature space. | Lower is better.
-**Kernel-Inception score** | Measures the dissimilarity between two probability distributions `Pr` and `Pg` using samples drawn independently from each distribution. | Lower is better.
+**Frechet-Inception distance** | Wasserstein-2 distance between multi-variate Gaussians fitted to data embedded into a feature space. | Lower is better.
+**Kernel-Inception distance** | Measures the dissimilarity between two probability distributions `Pr` and `Pg` using samples drawn independently from each distribution. | Lower is better.
 
 ## Usage
 ```
