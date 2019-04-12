@@ -1,5 +1,8 @@
 # GAN_Metrics-Tensorflow
-Simple Tensorflow implementation of metrics for GAN evaluation (Inception score, Frechet-Inception distance, Kernel-Inception distance)
+Simple Tensorflow implementation of metrics for GAN evaluation
+* Inception score
+* Frechet-Inception distance
+* Kernel-Inception distance
 
 <div align="center">
   <img src="./assets/description.png">
