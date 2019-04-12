@@ -14,7 +14,6 @@ Simple Tensorflow implementation of metrics for GAN evaluation (Inception score,
 
 ## Usage
 ```
-
 ├── real_source 
     ├── aaa.png
     ├── bbb.jpg
@@ -27,7 +26,6 @@ Simple Tensorflow implementation of metrics for GAN evaluation (Inception score,
 ├── main.py
 ├── inception_score.py
 └── frechet_kernel_Inception_distance.py
-
 ```
 
 ```python
