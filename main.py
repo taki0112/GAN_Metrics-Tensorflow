@@ -1,5 +1,5 @@
-from fid_kid.frechet_kernel_Inception_distance import *
-from fid_kid.inception_score import *
+from frechet_kernel_Inception_distance import *
+from inception_score import *
 from glob import glob
 import os
 
