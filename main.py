@@ -45,7 +45,7 @@ def frechet_inception_distance() :
     FID = get_fid(fcd, BATCH_SIZE, real_images, fake_images, inception_images, real_activation, fake_activation, activations)
 
     print()
-    print("FID : ", FID)
+    print("FID : ", FID / 100)
 
 def kernel_inception_distance() :
     filenames = glob(os.path.join('./real_target', '*.*'))
@@ -75,6 +75,9 @@ def kernel_inception_distance() :
     print("KID_stddev : ", KID_stddev * 100)
 
 def mean_kernel_inception_distance() :
+    source_alpha = 0.98
+    target_alpha = 1 - source_alpha
+    
     filenames = glob(os.path.join('./real_source', '*.*'))
     real_source_images = [get_images(filename) for filename in filenames]
     real_source_images = np.transpose(real_source_images, axes=[0, 3, 1, 2])
@@ -108,9 +111,9 @@ def mean_kernel_inception_distance() :
     mean_KID_mean = get_kid(kcd_mean, BATCH_SIZE, real_source_images, fake_images, inception_images, real_activation, fake_activation, activations)
     mean_KID_stddev = get_kid(kcd_stddev, BATCH_SIZE, real_source_images, fake_images, inception_images, real_activation, fake_activation, activations)
 
-    mean_FID = (FID + mean_FID) / 2.0
-    mean_KID_mean = (KID_mean + mean_KID_mean) / 2.0
-    mean_KID_stddev = (KID_stddev + mean_KID_stddev) / 2.0
+    mean_FID = (target_alpha * FID + source_alpha * mean_FID) / 2.0
+    mean_KID_mean = (target_alpha * KID_mean + source_alpha * mean_KID_mean) / 2.0
+    mean_KID_stddev = (target_alpha * KID_stddev + source_alpha * mean_KID_stddev) / 2.0
 
     # mean_FID = (2 * FID * mean_FID) / (FID + mean_FID)
     # mean_KID_mean = (2 * KID_mean * mean_KID_mean) / (KID_mean + mean_KID_mean)
@@ -118,7 +121,7 @@ def mean_kernel_inception_distance() :
 
     print()
 
-    print("mean_FID : ", mean_FID)
+    print("mean_FID : ", mean_FID / 100)
     print("mean_KID_mean : ", mean_KID_mean * 100)
     print("mean_KID_stddev : ", mean_KID_stddev * 100)
 
